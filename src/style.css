@@ -40,8 +40,8 @@ a {
 
 /* ----------------------------------- */
 .addinput-homeadmin {
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 120px;
+    margin-right: 120px;
 } 
 
 .input-homeadmin {
@@ -50,7 +50,7 @@ a {
 }
 
 .input-homeadmin input {
-    width: 280px;
+    width: 340px;
     height: 30px;
 }
 
@@ -71,16 +71,20 @@ table, th, td {
 table {
     border-collapse: collapse;
     margin-top: 80px;
-    margin-left: 20%;
+    margin-left: 22%;
+    margin-bottom: 50px;
     width: 50%;
 }
 
 th {
     background-color: rgb(240, 240, 240);
+    padding: 2%;
 }
 
 td {
     text-align: center;
+    height: 50%;
+    padding: 2%;
 }
 
 .btn-delete {

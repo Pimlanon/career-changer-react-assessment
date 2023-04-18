@@ -2,6 +2,8 @@ import { useState } from "react"
 import Layout from "./Layout"
 import Data from "./mock-data.json"
 import Home from "./Home.jsx"
+import Table from "./Table"
+import AddForm from "./AddForm"
 
 
 
@@ -37,19 +39,19 @@ const HomeAdmin = () => {
 
         const addNewInput = [...inputs, newInputs];
         setInputs(addNewInput);
+        
     };
 
-
-    // const handleDeleteClick = (inputs.id) => {
-    //     console.log(inputs.name)
-    //     const result = inputs.filter(item=> item.id !== id);
-    //     setInputs(result)
-    // }
+    function deleteData(id) {
+        console.log(id)
+        const result = inputs.filter((item) => item.id !== id);
+        setInputs(result);
+    }
 
 
     return (
         <Layout>
-            <h1>{inputs.lastname} </h1>
+            
             <h1 className="haed-home">
                 Generation Thailand <br /> Home - Admin Sector
             </h1>
@@ -61,36 +63,24 @@ const HomeAdmin = () => {
                     <a href="/homeadmin">Admin Home Sector</a>
                 </button>
             </div>
-            <form className="addinput-homeadmin" onSubmit={handleAddFormSubmit}>
-                <h3>Create User here</h3>
-                <div className="input-homeadmin">
-                    <input type="text" name="name" placeholder="Name" onChange={handleAddFormChange}></input>
-                    <input type="text" name="lastname" placeholder="Last Name" onChange={handleAddFormChange}></input>
-                    <input type="text" name="position" placeholder="Position" onChange={handleAddFormChange}></input>
-                    <button type="submit">Save</button>
-                </div>
-            </form>
+            <AddForm handleAddFormSubmit={handleAddFormSubmit} handleAddFormChange={handleAddFormChange} />
             <table>
+                <thead>  
                     <tr>
                         <th>Name</th>
                         <th>Lastname</th>
                         <th>Position</th>
                         <th>Action</th>
                     </tr>
+                </thead>
                 
                 <tbody>
                     {inputs.map((input) => (
-                        <tr key={input.id}>
-                            <td >{input.name}</td>
-                            <td >{input.lastname}</td>
-                            <td >{input.position}</td>
-                            <td> 
-                                <button className="btn-delete" type="button">Delete</button>
-                            </td>
-                        </tr>
-                    ))}
-                    
+                        <Table key={input.id}  input={input} deleteData={deleteData} />
+                    ))} 
                 </tbody>
+
+                
             </table>
             
             
