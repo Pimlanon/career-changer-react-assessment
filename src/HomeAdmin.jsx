@@ -8,39 +8,60 @@ import AddForm from "./AddForm"
 
 
 const HomeAdmin = () => {
-    const [inputs, setInputs] = useState(Data)
-    const [addForm, setAddForm] = useState({
-        name: '',
-        lastname: '',
-        position: ''
-    })
+    const [inputs, setInputs] = useState(Data);
+    const [name, setName] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [position, setPosition] = useState('');
+    // const [addForm, setAddForm] = useState({
+    //     name: '',
+    //     lastname: '',
+    //     position: ''
+    // })
     
-    const handleAddFormChange = (event) => {
-        event.preventDefault();
+    // const handleAddFormChange = (event) => {
+    //     event.preventDefault();
 
-        const fieldName = event.target.getAttribute('name');
-        const fieldValue = event.target.value;
+    //     const fieldName = event.target.getAttribute('name');
+    //     const fieldValue = event.target.value;
 
-        const newFormData = {...addForm};
-        newFormData[fieldName] = fieldValue
+    //     const newFormData = {...addForm};
+    //     newFormData[fieldName] = fieldValue
 
-        setAddForm(newFormData);
-    };
+    //     setAddForm(newFormData);
+    // };
 
-    const handleAddFormSubmit = (event) => {
-        event.preventDefault();
+    // const handleAddFormSubmit = (event) => {
+    //     event.preventDefault();
 
-        const newInputs = {
-            id: Math.floor(Math.random() * 100),
-            name: addForm.name,
-            lastname: addForm.lastname,
-            position: addForm.position
-        }
+    //     const newInputs = {
+    //         id: Math.floor(Math.random() * 100),
+    //         name: addForm.name,
+    //         lastname: addForm.lastname,
+    //         position: addForm.position
+    //     }
 
-        const addNewInput = [...inputs, newInputs];
-        setInputs(addNewInput);
+    //     const addNewInput = [...inputs, newInputs];
+    //     setInputs(addNewInput);
         
-    };
+    // };
+
+    function saveInput(e) {
+        e.preventDefault();
+        if(!name || !lastname || !position) {
+            setInputs(inputs);
+        }else {
+            const newInputs = {
+                id: Math.floor(Math.random() * 100),
+                name: name,
+                lastname: lastname,
+                position: position
+            }
+            setInputs([...inputs, newInputs])
+            setName('')
+            setLastname('')
+            setPosition('')
+        }
+    }
 
     function deleteData(id) {
         console.log(id)
@@ -63,7 +84,7 @@ const HomeAdmin = () => {
                     <a href="/homeadmin">Admin Home Sector</a>
                 </button>
             </div>
-            <AddForm handleAddFormSubmit={handleAddFormSubmit} handleAddFormChange={handleAddFormChange} />
+            <AddForm name={name} setName={setName} lastname={lastname} setLastname = {setLastname} position = {position} setPosition={setPosition} saveInput={saveInput} />
             <table>
                 <thead>  
                     <tr>
