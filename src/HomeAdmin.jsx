@@ -99,7 +99,9 @@ const HomeAdmin = () => {
                     {inputs.map((input) => (
                         <Table key={input.id}  input={input} deleteData={deleteData} />
                     ))} 
+                    
                 </tbody>
+                
 
                 
             </table>
