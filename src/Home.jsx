@@ -1,3 +1,5 @@
+import Layout from "./Layout"
+
 const mockEmployees = [
   {
     id: 0,
@@ -22,9 +24,15 @@ const mockEmployees = [
 const Home = () => {
 
   return (
-    <div>
-
-    </div>
+    <Layout>
+      <div>
+        <h1 className="haed-home">Generation Thailand <br/> React - Assement</h1>
+        <div className="btn-home">
+          <button><a href="/homeuser">User Home Sector</a></button>
+          <button><a href="/homeadmin">Admin Home Sector</a></button>
+        </div>
+      </div>
+    </Layout>
   )
 }
 
