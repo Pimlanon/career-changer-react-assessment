@@ -1,4 +1,6 @@
 import Layout from "./Layout"
+import { useState } from "react"
+import HomeAdmin from "./HomeAdmin"
 
 const mockEmployees = [
   {
@@ -21,7 +23,10 @@ const mockEmployees = [
   },
 ]
 
+
+
 const Home = () => {
+  const [input, setInput] = useState(mockEmployees);
 
   return (
     <Layout>
@@ -31,6 +36,16 @@ const Home = () => {
           <button><a href="/homeuser">User Home Sector</a></button>
           <button><a href="/homeadmin">Admin Home Sector</a></button>
         </div>
+
+        <section className="hide">
+          {input.map((data) => (
+            <HomeAdmin key={data.id} data={data} />
+          ))}
+        </section>
+        
+        
+        
+          
       </div>
     </Layout>
   )
@@ -38,4 +53,5 @@ const Home = () => {
 
 
 
-export default Home
+export default Home;
+
