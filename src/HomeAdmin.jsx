@@ -39,9 +39,17 @@ const HomeAdmin = () => {
         setInputs(addNewInput);
     };
 
+
+    // const handleDeleteClick = (inputs.id) => {
+    //     console.log(inputs.name)
+    //     const result = inputs.filter(item=> item.id !== id);
+    //     setInputs(result)
+    // }
+
+
     return (
         <Layout>
-            
+            <h1>{inputs.lastname} </h1>
             <h1 className="haed-home">
                 Generation Thailand <br /> Home - Admin Sector
             </h1>
@@ -64,9 +72,10 @@ const HomeAdmin = () => {
             </form>
             <table>
                     <tr>
-                        <th>name</th>
-                        <th>lastname</th>
-                        <th>position</th>
+                        <th>Name</th>
+                        <th>Lastname</th>
+                        <th>Position</th>
+                        <th>Action</th>
                     </tr>
                 
                 <tbody>
@@ -75,6 +84,9 @@ const HomeAdmin = () => {
                             <td >{input.name}</td>
                             <td >{input.lastname}</td>
                             <td >{input.position}</td>
+                            <td> 
+                                <button className="btn-delete" type="button">Delete</button>
+                            </td>
                         </tr>
                     ))}
                     

@@ -83,6 +83,14 @@ td {
     text-align: center;
 }
 
+.btn-delete {
+    border: 0;
+    background-color: transparent;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 /* ------------------------ */
 .myInfo {
     text-align: center;
