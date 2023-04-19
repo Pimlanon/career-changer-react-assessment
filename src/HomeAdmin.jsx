@@ -7,6 +7,7 @@ import AddForm from "./AddForm"
 
 
 
+
 const HomeAdmin = () => {
     const [inputs, setInputs] = useState(Data);
     const [name, setName] = useState('');

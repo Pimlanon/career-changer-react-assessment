@@ -1,6 +1,7 @@
 import Layout from "./Layout";
 import Data from "./mock-data.json"
 import { useState } from "react";
+import Table from "./Table";
 
 
 
